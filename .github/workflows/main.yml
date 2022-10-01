@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI/CD CSAT Nodejs
 
 # Controls when the workflow will run
 on:
@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-node@v2
         with: 
           node-version: "14.x"
-      
+
       # Install project dependencies
       - name: Install dependencies
         run: npm install
@@ -44,12 +44,11 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-  
+
   # Deploy To Heroku
   deploy:
     runs-on: ubuntu-latest
     needs: [build]
-
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 
